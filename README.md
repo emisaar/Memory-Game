@@ -1,5 +1,5 @@
 #### Semana Tec 12 - Herramientas Computacionales: El arte de la programación
-# Actividad 1. Juego de Memoria
+# Actividad 5. Juego de Memoria
 
 ## Descripción
 Se realizan los ejercicios propuestos para el juego *Memory* de la colección **freegames** escritos en código Python.

@@ -1,12 +1,14 @@
-"""Memory, puzzle game of number pairs.
+"""
+Game: Memory (May 11th, 2022)
+Student 1: Alejandro Díaz Villagómez | A01276769
+Student 2: Emiliano Saucedo Arriola | A01659258
 
 Exercises:
 
 1. Count and print how many taps occur.
-2. Decrease the number of tiles to a 4x4 grid.
-3. Detect when all tiles are revealed.
-4. Center single-digit tile.
-5. Use letters instead of tiles.
+2. Detect when all tiles are revealed.
+3. Center single-digit tile. [DONE by Emiliano]
+4. Use words instead of tiles. [DONE by Emiliano]
 """
 
 from random import *
@@ -19,6 +21,13 @@ tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
 
+word_tiles = {0: 'apple', 1: 'bee', 2: 'corn', 3: 'doll', 4: 'elf', 5: 'fork', 6: 'git', 7: 'horse', 8: 'ignite', 9: 'jewel',
+            10: 'key', 11: 'lime', 12: 'mom', 13: 'nurse', 14: 'onion', 15: 'pear', 16: 'queen', 17: 'root', 18: 'snake', 19: 'toy',
+            20: 'uncle', 21: 'vowel', 22: 'wax', 23: 'xmas', 24: 'yield', 25: 'zap', 26: 'army', 27: 'bun', 28: 'can', 29: 'dog',
+            30: 'eel', 31: 'forest', 32: 'apple', 33: 'bee', 34: 'corn', 35: 'doll', 36: 'elf', 37: 'fork', 38: 'git', 39: 'horse',
+            40: 'ignite', 41: 'jewel', 42: 'key', 43: 'lime', 44: 'mom', 45: 'nurse', 46: 'onion', 47: 'pear', 48: 'queen', 49: 'root',
+            50: 'snake', 51: 'toy', 52: 'uncle', 53: 'vowel', 54: 'wax', 55: 'xmas', 56: 'yield', 57: 'zap', 58: 'army', 59: 'bun', 60: 'can',
+            61: 'dog', 62: 'eel', 63: 'forest'}
 
 def square(x, y):
     """Draw white square with black outline at (x, y)."""
@@ -48,7 +57,8 @@ def tap(x, y):
     spot = index(x, y)
     mark = state['mark']
 
-    if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+    # if mark is None or mark == spot or tiles[mark] != tiles[spot]:
+    if mark is None or mark == spot or word_tiles[mark] != word_tiles[spot]:
         state['mark'] = spot
     else:
         hide[spot] = False
@@ -73,15 +83,18 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
-        goto(x + 2, y)
+        # goto(x + 25, y + 2) # To center numbers
+        goto(x + 25, y + 15)
         color('black')
-        write(tiles[mark], font=('Arial', 30, 'normal'))
+        # write(tiles[mark], align = 'center', font = ('Arial', 30, 'normal'))
+        write(word_tiles[mark], align = 'center', font = ('Consolas', 11, 'normal'))
 
     update()
     ontimer(draw, 100)
 
 
-shuffle(tiles)
+# shuffle(tiles)
+shuffle(word_tiles)
 setup(420, 420, 370, 0)
 addshape(car)
 hideturtle()

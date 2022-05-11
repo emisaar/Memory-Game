@@ -57,6 +57,7 @@ def tap(x, y):
     spot = index(x, y)
     mark = state['mark']
 
+    """Switch lines according to game mode (numbers or words)"""
     # if mark is None or mark == spot or tiles[mark] != tiles[spot]:
     if mark is None or mark == spot or word_tiles[mark] != word_tiles[spot]:
         state['mark'] = spot
@@ -83,18 +84,26 @@ def draw():
     if mark is not None and hide[mark]:
         x, y = xy(mark)
         up()
+        
+        """Switch lines according to game mode (numbers or words)"""
         # goto(x + 25, y + 2) # To center numbers
-        goto(x + 25, y + 15)
+        goto(x + 25, y + 15) # To center words
+        """----"""
+        
         color('black')
-        # write(tiles[mark], align = 'center', font = ('Arial', 30, 'normal'))
-        write(word_tiles[mark], align = 'center', font = ('Consolas', 11, 'normal'))
+        
+        """Switch lines according to game mode (numbers or words)"""
+        # write(tiles[mark], align = 'center', font = ('Arial', 30, 'normal')) # For numbers
+        write(word_tiles[mark], align = 'center', font = ('Consolas', 11, 'normal')) # For tiles
+        """----"""
 
     update()
     ontimer(draw, 100)
 
-
+"""Switch lines according to game mode (numbers or words)"""
 # shuffle(tiles)
 shuffle(word_tiles)
+"""----"""
 setup(420, 420, 370, 0)
 addshape(car)
 hideturtle()

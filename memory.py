@@ -5,10 +5,10 @@ Student 2: Emiliano Saucedo Arriola | A01659258
 
 Exercises:
 
-1. Count and print how many taps occur.
-2. Detect when all tiles are revealed.
-3. Center single-digit tile. [DONE by Emiliano]
-4. Use words instead of tiles. [DONE by Emiliano]
+1. Count and print how many taps occur. [DONE BY ALEJANDRO]
+2. Detect when all tiles are revealed. [DONE BY ALEJANDRO]
+3. Center single-digit tile. [DONE BY EMILIANO]
+4. Use words instead of tiles. [DONE BY EMILIANO]
 """
 
 from random import *
